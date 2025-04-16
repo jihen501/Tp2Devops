@@ -19,8 +19,8 @@ pipeline {
         }
 
         stage('Build') {
-            echo 'Building...'
             steps {
+                 echo 'Building...'
                 sh 'mvn clean install'
                 //	The sh step invokes the mvn clean install command and will only continue if a zero exit code is returned by the command. Any non-zero exit code will fail the Pipeline.
             }
