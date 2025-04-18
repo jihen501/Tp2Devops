@@ -6,12 +6,20 @@ pipeline {
       }
 
     environment {
-            DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-raja')
+            DOCKERHUB_CREDENTIALS=credentials('jihen')
             DOCKER_IMAGE = 'jihen501/springboot-app'
-            VERSION = "${new Date().format('yyyyMMdd-HHmm')}"
     }
 
     stages {
+
+        stage('Préparer la version') {
+        steps {
+            script {
+                VERSION = new Date().format('yyyyMMdd-HHmm')
+                env.VERSION = VERSION  // important pour l'utiliser dans d'autres étapes
+            }
+        }
+    }
         stage('Cloner le dépôt') {
             steps {
                 checkout scm
