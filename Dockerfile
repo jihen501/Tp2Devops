@@ -1,6 +1,6 @@
 ##Etape 1 : build de proojet 
 #  Image de base avec Java
-FROM maven:3.8.6-openjdk-17 AS build
+FROM maven:3.8.6-eclipse-temurin-17 AS build
 
 # Répertoire de travail
 WORKDIR /app
