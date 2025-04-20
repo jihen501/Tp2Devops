@@ -53,7 +53,7 @@ pipeline {
         stage('Push Docker image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.example.com', DOCKERHUB_CREDENTIALS) {
+                    docker.withRegistry('index.docker.io/v2/', DOCKERHUB_CREDENTIALS) {
                         dockerImage.push("${VERSION}")
                         dockerImage.push("latest") 
                         //	Push the Docker image to Docker Hub using the credentials defined in Jenkins.
