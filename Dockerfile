@@ -8,7 +8,7 @@ WORKDIR /app
 # compy the pom.xml and download dependencies
 COPY pom.xml .
 COPY src ./src
-RUN mvm clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Etape 2 : exécution de l'application
 #use a smaller base image to run the application 
